@@ -1,0 +1,263 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-11 10:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: templates/accounts/login.html:8 templates/accounts/login.html:25
+msgid "Login"
+msgstr "Anmeldung"
+
+#: templates/accounts/login.html:19 templates/dashboard/addemployee.html:24
+#: templates/dashboard/empupdate.html:24 templates/dashboard/itemadd.html:24
+msgid "Authentication"
+msgstr "Authentifizierung"
+
+#: templates/accounts/login.html:39
+msgid "Add your credentials"
+msgstr "Fügen Sie Ihre Anmeldeinformationen hinzu"
+
+#: templates/accounts/login.html:79 templates/dashboard/item.html:97
+#: templates/index.html:130
+msgid "Submit"
+msgstr "einreichen"
+
+#: templates/accounts/login.html:81
+msgid "Not a member?"
+msgstr "Kein Mitglied?"
+
+#: templates/accounts/login.html:81
+msgid "Please"
+msgstr "Bitte"
+
+#: templates/accounts/login.html:81 templates/dashboard/addemployee.html:13
+#: templates/dashboard/addemployee.html:30
+#: templates/dashboard/empupdate.html:13 templates/dashboard/empupdate.html:30
+#: templates/dashboard/itemadd.html:30
+msgid "Register"
+msgstr "Registrieren"
+
+#: templates/base/header.html:8
+msgid "Tech Box"
+msgstr ""
+
+#: templates/base/navbar.html:81
+msgid "View Profile"
+msgstr "Profil anzeigen"
+
+#: templates/base/navbar.html:87 templates/base/sidebar1.html:29
+msgid "My Profile"
+msgstr "Mein Profil"
+
+#: templates/base/navbar.html:88
+msgid "My Balance"
+msgstr "Mein Gleichgewicht"
+
+#: templates/base/navbar.html:89
+msgid "Inbox"
+msgstr "Posteingang"
+
+#: templates/base/navbar.html:91
+msgid "Account Setting"
+msgstr "Konto-Einstellung"
+
+#: templates/base/navbar.html:93 templates/base/sidebar1.html:34
+msgid "Logout"
+msgstr "Ausloggen"
+
+#: templates/base/sidebar1.html:46
+msgid "Components"
+msgstr "Komponenten"
+
+#: templates/base/sidebar1.html:51
+msgid "Employee"
+msgstr "Mitarbeiter"
+
+#: templates/base/sidebar1.html:58 templates/dashboard/employedata.html:22
+msgid "Employee List"
+msgstr "Mitarbeiterliste"
+
+#: templates/base/sidebar1.html:63 templates/dashboard/addemployee.html:51
+#: templates/dashboard/addemployee.html:109 templates/index.html:30
+#: templates/index.html:114
+msgid "Add Employee"
+msgstr "Mitarbeiter hinzufügen"
+
+#: templates/base/sidebar1.html:72
+msgid "Items"
+msgstr "Artikel"
+
+#: templates/base/sidebar1.html:79
+msgid "Item List"
+msgstr "Artikel liste"
+
+#: templates/dashboard/employedata.html:38
+msgid "Employee's"
+msgstr "Angestellte"
+
+#: templates/dashboard/employedata.html:47 templates/dashboard/item.html:23
+#: templates/dashboard/item.html:60 templates/dashboard/itemadd.html:63
+msgid "Name"
+msgstr "Name"
+
+#: templates/dashboard/employedata.html:48
+msgid "Designation"
+msgstr "Bezeichnung"
+
+#: templates/dashboard/employedata.html:49
+msgid "Email"
+msgstr "Email"
+
+#: templates/dashboard/employedata.html:50
+msgid "Mobile"
+msgstr "Mobiltelefon"
+
+#: templates/dashboard/employedata.html:51
+#: templates/dashboard/itemassign.html:66
+msgid "Action"
+msgstr "Aktion"
+
+#: templates/dashboard/employedata.html:67
+msgid " Update"
+msgstr "Aktualisieren"
+
+#: templates/dashboard/employedata.html:71
+#: templates/dashboard/itemassign.html:77
+msgid " Remove"
+msgstr "Entfernen"
+
+#: templates/dashboard/employedata.html:87
+#: templates/dashboard/itemassign.html:93
+msgid "Please Confirm To Delete"
+msgstr "Bitte bestätigen Sie zum Löschen"
+
+#: templates/dashboard/employedata.html:92 templates/dashboard/item.html:95
+#: templates/dashboard/itemassign.html:98 templates/index.html:128
+msgid "Close"
+msgstr "Schließen"
+
+#: templates/dashboard/employedata.html:95
+#: templates/dashboard/itemassign.html:101
+msgid "Delete"
+msgstr "Löschen"
+
+#: templates/dashboard/empupdate.html:105
+msgid "Update Employee"
+msgstr "Mitarbeiter aktualisieren"
+
+#: templates/dashboard/item.html:26 templates/dashboard/item.html:63
+msgid "Avilability"
+msgstr "Verfügbarkeit"
+
+#: templates/dashboard/item.html:28 templates/dashboard/item.html:46
+#: templates/dashboard/item.html:64
+msgid "Assign"
+msgstr "Zuordnen"
+
+#: templates/dashboard/item.html:31 templates/dashboard/item.html:67
+msgid "Remove"
+msgstr "Entfernen"
+
+#: templates/dashboard/item.html:41
+msgid "In Stock"
+msgstr "Auf Lager"
+
+#: templates/dashboard/item.html:43
+msgid "Out of Stock"
+msgstr "Nicht vorrättig"
+
+#: templates/dashboard/item.html:81 templates/dashboard/itemadd.html:83
+msgid "Add Item"
+msgstr "Artikel hinzufügen"
+
+#: templates/dashboard/itemadd.html:13
+msgid "Item Add"
+msgstr "Artikel hinzufügen"
+
+#: templates/dashboard/itemadd.html:73
+msgid "Status"
+msgstr "Status"
+
+#: templates/dashboard/itemassign.html:30
+msgid "Item's Borrow"
+msgstr "Artikel ausleihen"
+
+#: templates/dashboard/itemassign.html:51
+msgid "Borrow Item"
+msgstr "Artikel ausleihen"
+
+#: templates/dashboard/itemassign.html:64
+msgid "Employee Name"
+msgstr "Mitarbeiter name"
+
+#: templates/dashboard/itemassign.html:65
+msgid "Item's"
+msgstr "Artikel's"
+
+#: templates/dashboard/itemassign.html:85
+msgid "Delete Borrow Item's"
+msgstr "Leihgegenstände löschen"
+
+#: templates/dashboard/success.html:5
+msgid "Thanks for your order!"
+msgstr "Danke für Ihre Bestellung!"
+
+#: templates/dashboard/success.html:11
+msgid "We appreciate your business! If you have any questions, please email"
+msgstr ""
+"Wir machen gerne Geschäfte mit Ihnen! Wenn Sie Fragen haben, senden Sie "
+"bitte eine E-Mail"
+
+#: templates/dashboard/success.html:14
+msgid "Back To Home"
+msgstr "Zurück nach Hause"
+
+#: templates/index.html:29
+msgid "Manage"
+msgstr "Verwalten"
+
+#: templates/index.html:31
+msgid "Donate"
+msgstr "Spenden"
+
+#: templates/index.html:44
+msgid "Total Employees"
+msgstr "Mitarbeiter insgesamt"
+
+#: templates/index.html:61
+msgid "Total Items"
+msgstr "Gesamtanzahl"
+
+#: templates/index.html:78
+msgid "Assign Items"
+msgstr "Elemente zuweisen"
+
+#: templates/index.html:95
+msgid "Available Items"
+msgstr "Verfügbare Artikel"
+
+#: the_techbox/settings.py:151
+msgid "English"
+msgstr ""
+
+#: the_techbox/settings.py:152
+msgid "German"
+msgstr ""
+
+#: the_techbox/urls.py:35
+msgid "admin/"
+msgstr "Administrator"

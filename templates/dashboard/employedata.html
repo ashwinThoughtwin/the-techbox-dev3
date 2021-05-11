@@ -1,0 +1,128 @@
+{% extends "layouts/base.html" %}
+
+{% load i18n %}
+
+{% block title %} Employee List {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+{% if messages %}
+{% for message in messages %}
+
+{{ message }}
+
+{% endfor %}
+{% endif %}
+<div class="content">
+	<div class="page-inner">
+		<div class="page-header">
+			<h4 class="page-title">{% trans 'Employee List' %}</h4>
+			<ul class="breadcrumbs">
+				<li class="nav-home">
+					<a href="#">
+						<i class="flaticon-home"></i>
+					</a>
+				</li>
+				<li class="separator">
+					<i class="flaticon-right-arrow"></i>
+				</li>
+			</ul>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header">
+						<h4 class="card-title">{% trans "Employee's" %}</h4>
+						<!-- Button trigger modal -->
+
+					</div>
+					<div class="card-body">
+						<div class="table-responsive">
+							<table id="mytable" class="table table-fluid">
+								<thead>
+									<tr class="text text-info">
+										<th>{% trans 'Name' %}</th>
+										<th>{% trans 'Designation' %}</th>
+										<th>{% trans 'Email' %}</th>
+										<th>{% trans 'Mobile' %}</th>
+										<th class="text-center">{% trans 'Action' %}</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for emp in emp %}
+									<tr>
+										<td>{{emp.name}}</td>
+										<td>{{emp.get_designation_display }}</td>
+										<td>{{emp.email}}</td>
+										<td>{{emp.mobile}}</td>
+										<td>
+											<div class="form-button-action">
+												<a href="{%url 'update' emp.id %}"><button type="submit"
+														data-toggle="tooltip" title=""
+														class="btn btn-link btn-primary btn-lg"
+														data-original-title="Edit">
+														<i class="fa fa-edit">{% trans ' Update' %}</i>
+													</button></a>
+												<button type="button" data-toggle="modal" data-target="#exampleModal"
+													class="btn btn-link btn-danger" data-original-title="Remove">
+													<i class="fa fa-times">{% trans ' Remove' %}</i>
+												</button>
+												<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+													aria-labelledby="exampleModalLabel" aria-hidden="true">
+													<div class="modal-dialog" role="document">
+														<div class="modal-content">
+															<div class="modal-header">
+																<h5 class="modal-title" id="exampleModalLabel">{% trans 'Delete
+																	Employee' %}
+																</h5>
+																<button type="button" class="close" data-dismiss="modal"
+																	aria-label="Close">
+																	<span aria-hidden="true">&times;</span>
+																</button>
+															</div>
+															<div class="modal-body">
+																<h2 class="text text-danger">{% trans 'Please Confirm To Delete' %}
+																</h2>
+															</div>
+															<div class="modal-footer">
+																<button type="button" class="btn btn-secondary"
+																	data-dismiss="modal">{% trans 'Close' %}</button>
+																<a href="{% url 'delete' emp.id %}"><button
+																		type="button"
+																		class="btn btn-danger">{% trans 'Delete' %}</button>
+															</div>
+														</div>
+													</div>
+												</div>
+
+											</div>
+										</td>
+									</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!-- Modal -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endif %}
+
+<!-- Button trigger modal -->
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+<script>
+$(document).ready(function(){
+	$('#mytable').DataTable();
+});
+</script>
+{% endblock javascripts %}

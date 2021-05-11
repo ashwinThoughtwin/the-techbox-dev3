@@ -1,0 +1,92 @@
+{% load i18n %}
+
+<!-- Sidebar -->
+	<div class="sidebar sidebar-style-2" data-background-color="dark2">	
+			<div class="sidebar-wrapper scrollbar scrollbar-inner">
+				<div class="sidebar-content">
+
+				{% if request.user.is_authenticated %}	
+					<div class="user">
+						<div class="avatar-sm float-left mr-2">
+							<img src="/static/assets/img/profile.jpeg" alt="..." class="avatar-img rounded-circle">
+						</div>
+						<div class="info">
+							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
+								<span>
+									{{ request.user.username }}
+									<span class="user-level">
+										{{ request.user.email }}
+									</span>
+									<span class="caret"></span>
+								</span>
+							</a>
+							<div class="clearfix"></div>
+
+							<div class="collapse in" id="collapseExample">
+								<ul class="nav">
+									<li>
+										<a href="#profile">
+											<span class="link-collapse">{% trans 'My Profile' %}</span>
+										</a>
+									</li>
+									<li>
+										<a href="{% url 'logout' %}">
+											<span class="link-collapse">{% trans 'Logout' %}</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<ul class="nav nav-primary">
+						<li class="nav-section">
+							<span class="sidebar-mini-icon">
+								<i class="fa fa-ellipsis-h"></i>
+							</span>
+							<h4 class="text-section">{% trans 'Components' %}</h4>
+						</li>
+						<li class="nav-item {% if 'ui-' in segment %} active {% endif %}">
+							<a data-toggle="collapse" href="#base">
+								<i class="fas fa-layer-group"></i>
+								<p>{% trans 'Employee' %}</p>
+								<span class="caret"></span>
+							</a>
+							<div class="collapse" id="base">
+								<ul class="nav nav-collapse">
+									<li>
+										<a href="/emplist/">
+											<span class="sub-item">{% trans 'Employee List' %}</span>
+										</a>
+									</li>
+									<li>
+										<a href="/addemp/">
+											<span class="sub-item">{% trans 'Add Employee' %}</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="nav-item {% if 'layout' in segment %} active {% endif %}">
+							<a data-toggle="collapse" href="#sidebarLayouts">
+								<i class="fas fa-th-list"></i>
+								<p>{% trans 'Items' %}</p>
+								<span class="caret"></span>
+							</a>
+							<div class="collapse" id="sidebarLayouts">
+								<ul class="nav nav-collapse">
+									<li>
+										<a href="/itemlist/">
+											<span class="sub-item">{% trans 'Item List' %}</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				{% else %}
+				{% endif %}	
+				</div>
+			</div>
+	</div>
+        <!-- End Sidebar -->
+        

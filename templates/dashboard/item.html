@@ -1,0 +1,196 @@
+{% extends "layouts/base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+{% if request.user.is_authenticated %}
+<div class="content">
+	<div class="page-inner">
+		<button class="btn btn-secondary btn-round float-right" data-target="#newempdata"
+							data-toggle="modal">Add Items</button>
+		<table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+
+  <thead>
+    <tr>
+      <th class="th-sm text-info">{% trans 'Name' %}
+
+      </th>
+      <th class="th-sm text-info">{% trans 'Avilability' %}
+      </th>
+      <th class="th-sm text-info">{% trans 'Assign'%}
+      </th>
+
+      <th class="th-sm text-info">{% trans 'Remove' %}
+
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+  	{% for item in items %}
+    <tr>	
+      <td>{{item.name}}</td>
+      {% if item.status is True %}
+        <td class="text-success">{% trans 'In Stock' %} </td>
+      {% else %}
+        <td class="text-danger">{% trans 'Out of Stock' %}</td>
+      {% endif %}
+    <td>
+        <a href="{%url 'item-assign' %}"><button type="button"<i class="btn btn-sm fa fa-edit">{% trans 'Assign' %}</i></button></a>
+    </td>
+
+    <td>
+        <div>
+            <input class="btn btn-danger btn-sm" type="button"
+            data-id="{{ item.id }}" id="tech-del-btn" value="Delete ">
+        </div>
+    </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  <tfoot>
+    <tr>
+      <th class="th-lm">{% trans 'Name' %}
+
+      </th>
+      <th class="th-lm">{% trans 'Avilability' %}
+      <th class="th-sm text-info">{% trans 'Assign' %}
+      </th>
+      </th>
+      <th class="th-lm">{% trans 'Remove' %}
+      </th>
+    </tr>
+  </tfoot>
+</table>
+	</div>
+</div>
+{% endif %}
+
+<div class="modal fade" id="newempdata" tabindex="-1" role="dialog" aria-labelledby="newempdataTitle"
+	aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header text-light">
+				<h5 class="modal-title text text-info" id="newempdataTitle">{% trans 'Add Item' %}</h5>
+				<button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<form method='post' action="{% url 'itemlist' %}">
+				{% csrf_token %}
+				<div class="modal-body">
+					<div id="tool-form">
+						{{ item_add.as_p }}
+						<br>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans 'Close' %}
+					</button>
+					<button type="submit" class="btn btn-primary" id="emp-btn">{% trans 'Submit' %}</button></a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(document).ready(function () {
+  $('#dtBasicExample').DataTable();
+  $('.dataTables_length').addClass('bs-select');
+});
+</script>
+<script>
+            $(document).ready(function () {
+                $(document).on('click', '#tech-btn', function (e) {
+                    e.preventDefault();
+                    var tool_name = $('#tool-name').val();
+                    var checked = $('#tool-status').is(':checked');
+                    if (checked) {
+                        var tool_status = "on"
+
+                    }
+                    var my_data = {
+                        "name": tool_name,
+                        "status": tool_status,
+                        'csrfmiddlewaretoken': "{{ csrf_token }}",
+                    }
+                    $.ajax({
+                        type: 'POST',
+                        url: "{% url 'itemlist' %}",
+                        data: my_data,
+                        success: function (data) {
+                            $('.new_tool').append(data);
+                            $('#newtooldata').modal('hide');
+                        },
+                    });
+                });
+
+            });
+        </script>
+
+        <script>
+            $(document).ready(function () {
+                $(document).on('click', '#tech-update-btn', function (e) {
+                    e.preventDefault();
+                    var obj = $(this); // first store $(this) in obj
+                    var id1 = $(this).data('id'); // get id of data using this
+
+                    $(document).on('click', '#obj-update-btn', function (e) {
+                        var id = id1
+                        var name = $('#name').val()
+
+                        var checked = $('#status').is(':checked');
+                        if (checked) {
+                            var tool_status = "on"
+                        }
+                        var my_data = {
+                            'id': id,
+                            "name": name,
+                            "status": tool_status,
+                            'csrfmiddlewaretoken': "{{ csrf_token }}",
+                        }
+                    });
+
+                });
+            });
+
+
+        </script>
+
+        <script>
+            $(document).ready(function () {
+                $(document).on('click', '#tech-del-btn', function (e) {
+                    e.preventDefault();
+                    var obj = $(this); // first store $(this) in obj
+                    var id = $(this).data('id'); // get id of data using this
+
+
+                    var my_data = {
+
+                        "id": id,
+                        'csrfmiddlewaretoken': "{{ csrf_token }}",
+                    }
+                    $.ajax({
+                        type: 'POST',
+                        url: "{% url 'itemdelete' %}",
+                        data: my_data,
+                        success: function (json) {
+                            $(obj).closest("tr").remove();
+                            alert("tool delete successfully ")
+                        },
+                    });
+                });
+
+            });
+        </script>
+
+
+{% endblock content %}
