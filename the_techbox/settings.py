@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.product',
     'apps.authenticate',
+    'apps.fb_chatboat',
     'rest_framework',
 ]
 

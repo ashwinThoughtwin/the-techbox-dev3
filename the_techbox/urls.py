@@ -35,6 +35,8 @@ urlpatterns += i18n_patterns(
     path(_('admin/'), admin.site.urls),
     path('sentry-debug/', trigger_error),
     path('', include('apps.authenticate.urls')),
-    path('', include('apps.product.urls'))
+    path('', include('apps.product.urls')),
+    path('chat_boat/',include('apps.fb_chatboat.urls'))
 
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
